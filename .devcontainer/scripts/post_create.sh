@@ -60,30 +60,6 @@ install_dotfiles() {
 	echo "⚠️ No install script found in dotfiles directory."
 }
 
-install_duckietown_shell() {
-	echo "🦆 Installing Duckietown Shell..."
-	if command -v pipx >/dev/null 2>&1; then
-		pipx install duckietown-shell || {
-			echo "❌ Error installing duckietown-shell with pipx."
-			return
-		}
-		echo "✅ Duckietown Shell installed successfully."
-	else
-		echo "⚠️ pipx not found. Installing pipx first..."
-		python3 -m pip install --user pipx || {
-			echo "❌ Error installing pipx."
-			return
-		}
-		# Add pipx to PATH
-		export PATH="$HOME/.local/bin:$PATH"
-		pipx install duckietown-shell || {
-			echo "❌ Error installing duckietown-shell with pipx."
-			return
-		}
-		echo "✅ pipx and Duckietown Shell installed successfully."
-	fi
-}
-
 personalize() {
 	# Allow script to continue as Coder dogfood utilizes a hack to
 	# synchronize startup script execution.
@@ -98,5 +74,4 @@ personalize() {
 install_devcontainer_cli
 install_ssh_config
 install_dotfiles
-install_duckietown_shell
 personalize
