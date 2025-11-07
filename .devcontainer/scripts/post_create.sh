@@ -5,7 +5,17 @@ install_devcontainer_cli() {
 	echo "🔧 Installing DevContainer CLI..."
 	cd "$(dirname "$0")/../tools/devcontainer-cli"
 	npm ci --omit=dev
-	ln -sf "$(pwd)/node_modules/.bin/devcontainer" "$(npm config get prefix)/bin/devcontainer"
+	
+	# Create ~/.local/bin if it doesn't exist
+	mkdir -p ~/.local/bin
+	
+	# Create symlink in user's local bin directory instead of system directory
+	ln -sf "$(pwd)/node_modules/.bin/devcontainer" ~/.local/bin/devcontainer
+	
+	# Add ~/.local/bin to PATH if not already there
+	if ! echo "$PATH" | grep -q "$HOME/.local/bin"; then
+		echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+	fi
 }
 
 install_ssh_config() {
