@@ -44,14 +44,14 @@
 				{
 					"slug": "code-server",
 					"displayName": "code-server",
-					"url": "http://${localEnv:FEATURE_CODE_SERVER_OPTION_HOST:127.0.0.1}:${localEnv:FEATURE_CODE_SERVER_OPTION_PORT:8080}/?folder=${containerWorkspaceFolder}",
+					"url": "http://${localEnv:FEATURE_CODE_SERVER_OPTION_HOST:127.0.0.1}:${localEnv:FEATURE_CODE_SERVER_OPTION_PORT:13337}/?folder=${containerWorkspaceFolder}",
 					"openIn": "${localEnv:FEATURE_CODE_SERVER_OPTION_APPOPENIN:slim-window}",
 					"share": "${localEnv:FEATURE_CODE_SERVER_OPTION_APPSHARE:owner}",
 					"icon": "/icon/code.svg",
 					"group": "${localEnv:FEATURE_CODE_SERVER_OPTION_APPGROUP:Web Editors}",
 					"order": 3,
 					"healthCheck": {
-						"url": "http://${localEnv:FEATURE_CODE_SERVER_OPTION_HOST:127.0.0.1}:${localEnv:FEATURE_CODE_SERVER_OPTION_PORT:8080}/healthz",
+						"url": "http://${localEnv:FEATURE_CODE_SERVER_OPTION_HOST:127.0.0.1}:${localEnv:FEATURE_CODE_SERVER_OPTION_PORT:13337}/healthz",
 						"interval": 5,
 						"threshold": 2
 					}
