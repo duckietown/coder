@@ -1,6 +1,6 @@
 {
 	"name": "Development environments on your infrastructure",
-	"image": "codercom/oss-dogfood:latest",
+	"image": "duckietown/workspace:latest",
 	"features": {
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {
 			"moby": "false"
