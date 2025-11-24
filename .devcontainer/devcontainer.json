@@ -1,14 +1,7 @@
 {
 	"name": "Development environments on your infrastructure",
 	"image": "duckietown/workspace:latest",
-	// All features are now baked into the image for faster startup!
-	// No need to rebuild features on every workspace start
-	// SYS_PTRACE to enable go debugging
-	"runArgs": ["--cap-add=SYS_PTRACE"],
 	"customizations": {
-		"vscode": {
-			"extensions": ["biomejs.biome"]
-		},
 		"coder": {
 			"apps": [
 				// Reproduce `code-server` app here from the code-server
