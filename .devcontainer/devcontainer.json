@@ -11,30 +11,6 @@
 		},
 		"coder": {
 			"apps": [
-				{
-					"slug": "cursor",
-					"displayName": "Cursor Desktop",
-					"url": "cursor://coder.coder-remote/openDevContainer?owner=${localEnv:CODER_WORKSPACE_OWNER_NAME}&workspace=${localEnv:CODER_WORKSPACE_NAME}&agent=${localEnv:CODER_WORKSPACE_PARENT_AGENT_NAME}&url=${localEnv:CODER_URL}&token=$SESSION_TOKEN&devContainerName=${localEnv:CONTAINER_ID}&devContainerFolder=${containerWorkspaceFolder}&localWorkspaceFolder=${localWorkspaceFolder}",
-					"external": true,
-					"icon": "/icon/cursor.svg",
-					"order": 1
-				},
-				{
-					"slug": "windsurf",
-					"displayName": "Windsurf Editor",
-					"url": "windsurf://coder.coder-remote/openDevContainer?owner=${localEnv:CODER_WORKSPACE_OWNER_NAME}&workspace=${localEnv:CODER_WORKSPACE_NAME}&agent=${localEnv:CODER_WORKSPACE_PARENT_AGENT_NAME}&url=${localEnv:CODER_URL}&token=$SESSION_TOKEN&devContainerName=${localEnv:CONTAINER_ID}&devContainerFolder=${containerWorkspaceFolder}&localWorkspaceFolder=${localWorkspaceFolder}",
-					"external": true,
-					"icon": "/icon/windsurf.svg",
-					"order": 4
-				},
-				{
-					"slug": "zed",
-					"displayName": "Zed Editor",
-					"url": "zed://ssh/${localEnv:CODER_WORKSPACE_AGENT_NAME}.${localEnv:CODER_WORKSPACE_NAME}.${localEnv:CODER_WORKSPACE_OWNER_NAME}.coder${containerWorkspaceFolder}",
-					"external": true,
-					"icon": "/icon/zed.svg",
-					"order": 5
-				},
 				// Reproduce `code-server` app here from the code-server
 				// feature so that we can set the correct folder and order.
 				// Currently, the order cannot be specified via option because
@@ -59,14 +35,5 @@
 			]
 		}
 	},
-	"mounts": [
-		// Add a volume for the Coder home directory to persist shell history,
-		// and speed up dotfiles init and/or personalization.
-		"source=coder-coder-devcontainer-home,target=/home/coder,type=volume",
-		// Mount the entire home because conditional mounts are not supported.
-		// See: https://github.com/devcontainers/spec/issues/132
-		"source=${localEnv:HOME},target=/mnt/home/coder,type=bind,readonly"
-	],
-	"postCreateCommand": ["./.devcontainer/scripts/post_create.sh"],
 	"postStartCommand": ["./.devcontainer/scripts/post_start.sh"]
 }
